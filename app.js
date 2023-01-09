@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 
 const jwt = require('jsonwebtoken');
 
+const dotenv = require('dotenv')
+dotenv.config({path:__dirname+'/.env'});
+
 /* MIDDLEWARE  */
 
 // Load in mongoose models
@@ -413,8 +416,17 @@ let deleteTasksFromList = (_listId) => {
     })
 }
 
-const port = process.env.PORT || 3000
 
-app.listen(port, () => {
-    console.log("Server is listening on port 3000");
-})
+const port = process.env.PORT || 3000;
+// app.listen(port, () => {
+//     console.log("Server is listening on port 3000");
+// }) 
+mongoose.connect(process.env.MONGODB_URL).then(() => {
+    console.log("Mongodb connected");
+    app.listen(port, () => {
+      console.log(`Server is listening on port ${port}`);
+    });
+  }).catch((err) => {
+    console.log({ err });
+    process.exit(1);
+  });

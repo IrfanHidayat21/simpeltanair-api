@@ -1,9 +1,12 @@
 // this file will handle connection logic to the MongoDB database
 
 const mongoose = require('mongoose');
+const dotenv = require('dotenv')
+dotenv.config({path:__dirname+'/.env'});
 
 mongoose.Promise = global.Promise;
-const connection = 'mongodb+srv://mean-vercel:m6g9PB1X8FbDobGX@mean-vercel.rkz4j3l.mongodb.net/?retryWrites=true&w=majority';
+
+const connection = process.env.MONGODB_URL || 'mongodb+srv://mean-vercel:m6g9PB1X8FbDobGX@mean-vercel.rkz4j3l.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(connection, { useNewUrlParser : true }).then(() => {
 console.log("Connected to MongoDB successfully :");
 })
