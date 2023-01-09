@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 
-const {mongoose} = require('./db/mongoose');
-
 const bodyParser = require('body-parser');
 
 const jwt = require('jsonwebtoken');
@@ -10,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv')
 dotenv.config({path:__dirname+'/.env'});
 
+const mongoose = require('mongoose');
 /* MIDDLEWARE  */
 
 // Load in mongoose models
