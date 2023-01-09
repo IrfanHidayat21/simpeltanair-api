@@ -16,6 +16,24 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         unique: true
     },
+    nahkoda: {
+        type: String,
+        required: false,
+        minLength: 1
+
+    },
+    jumlahKru: {
+        type: Number,
+        required: false,
+        minLength: 1
+
+    },
+    kru: {
+        type: String,
+        required: false,
+        minLength: 1
+
+    },
     password: {
         type: String,
         required: true,
