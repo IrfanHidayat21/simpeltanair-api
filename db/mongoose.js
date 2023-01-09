@@ -3,7 +3,8 @@
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/TimeSheet', { useNewUrlParser : true }).then(() => {
+const connection = 'mongodb+srv://mean-vercel:m6g9PB1X8FbDobGX@mean-vercel.rkz4j3l.mongodb.net/?retryWrites=true&w=majority';
+mongoose.connect(connection, { useNewUrlParser : true }).then(() => {
 console.log("Connected to MongoDB successfully :");
 })
 .catch((err) => {
